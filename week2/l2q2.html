@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee CRUD</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .crud-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        input[type="text"], input[type="number"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="crud-container">
+        <h2>Employee CRUD Operations</h2>
+
+        <form>
+            <div class="form-group">
+                <label for="empName">Employee Name:</label>
+                <input type="text" id="empName" name="empName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="empEmail">Employee Email:</label>
+                <input type="email" id="empEmail" name="empEmail" required>
+            </div>
+
+            <div class="form-group">
+                <label for="empSalary">Employee Salary:</label>
+                <input type="number" id="empSalary" name="empSalary" required>
+            </div>
+
+            <button type="submit">Add Employee</button>
+        </form>
+
+        <h3>Employee List</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Salary</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td>John Doe</td>
+                <td>johndoe@example.com</td>
+                <td>$50000</td>
+                <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Jane Smith</td>
+                <td>janesmith@example.com</td>
+                <td>$55000</td>
+                <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

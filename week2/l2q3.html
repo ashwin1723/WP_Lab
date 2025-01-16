@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Bootstrap Layout</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Body Styling */
+        body {
+            background-color: #f0e68c;
+            font-family: 'Courier New', Courier, monospace;
+            color: #4b0082;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Top Section */
+        .top-section {
+            background: linear-gradient(45deg, #ff6347, #f5deb3);
+            color: white;
+            padding: 60px 20px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .top-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
+        }
+
+        .top-section p {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-top: 15px;
+        }
+
+        /* Bottom Section */
+        .bottom-section {
+            padding: 60px 20px;
+            background-color: #fff3e6;
+        }
+
+        .section-heading {
+            font-size: 2rem;
+            color: #ff4500;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .card {
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card-header {
+            background-color: #ff4500;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .card-body {
+            background-color: #fafad2;
+        }
+
+        /* Custom Buttons and Input Groups */
+        .btn-custom {
+            width: 100%;
+            font-weight: bold;
+            background-color: #ff6347;
+            color: white;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .btn-custom:hover {
+            background-color: #f0e68c;
+            color: #4b0082;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .input-group-text {
+            background-color: #ff6347;
+            color: white;
+            font-weight: bold;
+        }
+
+        .badge-custom {
+            background-color: #ff4500;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 8px 16px;
+            margin-right: 5px;
+        }
+
+        .btn-group-toggle label {
+            font-weight: bold;
+        }
+
+        .btn-outline-primary {
+            font-weight: bold;
+            border: 2px solid #ff6347;
+            color: #ff6347;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #ff6347;
+            color: white;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 767px) {
+            .top-section h1 {
+                font-size: 2rem;
+            }
+
+            .section-heading {
+                font-size: 1.5rem;
+            }
+
+            .card {
+                padding: 15px;
+            }
+
+            .btn-custom {
+                font-size: 1rem;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <div class="top-section">
+            <h1>Welcome to the Retro Bootstrap Layout</h1>
+            <p>Explore a nostalgic, retro style web page using Bootstrap's responsive layout system. Dive into different input groups, buttons, badges, and button groups!</p>
+            <a href="#bottom" class="btn btn-light btn-lg mt-4">Scroll Down</a>
+        </div>
+    </div>
+
+    <div id="bottom" class="container mt-5 bottom-section">
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Input Group Example</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Use input groups to extend form controls with text, icons, or buttons.</p>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">@</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Enter your username" aria-label="Username">
+                        </div>
+                        <button class="btn btn-custom">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Badges & Button Group</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Badges can help highlight important info.</p>
+                        <div>
+                            <span class="badge badge-custom">New</span>
+                            <span class="badge badge-custom">Featured</span>
+                        </div>
+                        <div class="btn-group btn-group-toggle mt-3" data-toggle="buttons">
+                            <label class="btn btn-outline-primary active">
+                                <input type="radio" name="options" id="option1" autocomplete="off" checked> Option 1
+                            </label>
+                            <label class="btn btn-outline-primary">
+                                <input type="radio" name="options" id="option2" autocomplete="off"> Option 2
+                            </label>
+                            <label class="btn btn-outline-primary">
+                                <input type="radio" name="options" id="option3" autocomplete="off"> Option 3
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Text Input with Button Group</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Customize inputs and buttons with button groups.</p>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Enter your email" aria-label="Email">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-primary" type="button">Subscribe</button>
+                            </div>
+                        </div>
+                        <button class="btn btn-custom mt-3">Submit Email</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

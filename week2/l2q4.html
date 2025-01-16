@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Timetable</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Body styling */
+        body {
+            background-color: #f0f0f0;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+
+        /* Header styling */
+        .header {
+            background: linear-gradient(45deg, #ff6347, #ffeb3b);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        /* Table Styling */
+        .table-bordered th, .table-bordered td {
+            text-align: center;
+            padding: 10px;
+            vertical-align: middle;
+        }
+
+        .table-striped tbody tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+
+        /* Carousel Item Styling */
+        .carousel-item {
+            text-align: center;
+        }
+
+        /* Card Styling */
+        .card {
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #ff6347;
+            color: white;
+            font-weight: bold;
+            font-size: 1.25rem;
+            text-align: center;
+        }
+
+        .card-body {
+            background-color: #f7f7f7;
+            padding: 20px;
+        }
+
+        /* Week Labels */
+        .week-label {
+            font-size: 1.5rem;
+            color: #ff6347;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive Layout */
+        @media (max-width: 767px) {
+            .week-label {
+                font-size: 1.2rem;
+            }
+
+            .table th, .table td {
+                font-size: 0.9rem;
+                padding: 8px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Interactive Class Timetable</h1>
+        <p>Explore the weekly schedule with intuitive and easy-to-read tables.</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <!-- Carousel for Timetable -->
+        <div id="timetableCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Week 1 -->
+                <div class="carousel-item active">
+                    <div class="card">
+                        <div class="card-header">
+                            Week 1: Class Timetable
+                        </div>
+                        <div class="card-body">
+                            <div class="week-label">Week 1</div>
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Day</th>
+                                        <th>Subject</th>
+                                        <th>Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Monday</td>
+                                        <td>Mathematics</td>
+                                        <td>9:00 AM - 10:00 AM</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tuesday</td>
+                                        <td>Science</td>
+                                        <td>10:00 AM - 11:00 AM</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Wednesday</td>
+                                        <td>History</td>
+                                        <td>11:00 AM - 12:00 PM</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 2 -->
+                <div class="carousel-item">
+                    <div class="card">
+                        <div class="card-header">
+                            Week 2: Class Timetable
+                        </div>
+                        <div class="card-body">
+                            <div class="week-label">Week 2</div>
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Day</th>
+                                        <th>Subject</th>
+                                        <th>Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Monday</td>
+                                        <td>Computer Science</td>
+                                        <td>9:00 AM - 10:00 AM</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Thursday</td>
+                                        <td>English</td>
+                                        <td>2:00 PM - 3:00 PM</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Friday</td>
+                                        <td>Art</td>
+                                        <td>3:00 PM - 4:00 PM</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 3 -->
+                <div class="carousel-item">
+                    <div class="card">
+                        <div class="card-header">
+                            Week 3: Class Timetable
+                        </div>
+                        <div class="card-body">
+                            <div class="week-label">Week 3</div>
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Day</th>
+                                        <th>Subject</th>
+                                        <th>Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Monday</td>
+                                        <td>Biology</td>
+                                        <td>9:00 AM - 10:00 AM</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tuesday</td>
+                                        <td>Chemistry</td>
+                                        <td>10:00 AM - 11:00 AM</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Wednesday</td>
+                                        <td>Philosophy</td>
+                                        <td>11:00 AM - 12:00 PM</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Carousel Controls -->
+            <a class="carousel-control-prev" href="#timetableCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#timetableCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer text-center py-4 mt-5" style="background-color: #ff6347; color: white;">
+        <p>&copy; 2025 Interactive Timetable | All Rights Reserved</p>
+    </div>
+
+    <!-- Bootstrap 4 JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

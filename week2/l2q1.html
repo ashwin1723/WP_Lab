@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Bio-Data Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #555;
+        }
+
+        input[type="text"], input[type="email"], input[type="date"], select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .radio-group, .checkbox-group {
+            display: flex;
+            margin-top: 5px;
+        }
+
+        .radio-group label, .checkbox-group label {
+            margin-right: 15px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Student Bio-Data</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label>Gender:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="gender" value="Male" required> Male</label>
+                    <label><input type="radio" name="gender" value="Female"> Female</label>
+                    <label><input type="radio" name="gender" value="Other"> Other</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Subjects Interested:</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="subjects" value="Math"> Math</label>
+                    <label><input type="checkbox" name="subjects" value="Science"> Science</label>
+                    <label><input type="checkbox" name="subjects" value="History"> History</label>
+                </div>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <h3>Student Details</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Subjects</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Static Data Example -->
+                <tr>
+                    <td>John Doe</td>
+                    <td>johndoe@example.com</td>
+                    <td>2000-05-15</td>
+                    <td>Male</td>
+                    <td>Math, Science</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
