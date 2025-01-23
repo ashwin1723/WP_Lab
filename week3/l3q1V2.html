@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quiz</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+            background: linear-gradient(135deg, #f4f4f4 25%, #f0f0f0 50%, #e0e0e0 75%);
+            background-size: 20px 20px;
+        }
+
+        .quiz-container {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            border: 2px solid #d4d4d4;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        #answers-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        #answers-list li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        #answers-list li:hover {
+            background-color: #e0e0e0;
+            transform: scale(1.05);
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        #timer {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        #score-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div id="quiz">
+            <h1>Online Quiz</h1>
+            <div id="question-container">
+                <p id="question"></p>
+                <ul id="answers-list"></ul>
+            </div>
+            <div id="timer">Time Left: <span id="time-left"></span> seconds</div>
+            <div id="score-container">
+                <p>Score: <span id="score">0</span></p>
+            </div>
+            <button id="next-button" onclick="nextQuestion()">Next</button>
+            <button id="restart-button" onclick="restartQuiz()" style="display: none;">Restart Quiz</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "What is the capital of France?",
+                answers: ["Berlin", "Madrid", "Paris", "Rome"],
+                correct: 2
+            },
+            {
+                question: "Which planet is known as the Red Planet?",
+                answers: ["Earth", "Mars", "Jupiter", "Saturn"],
+                correct: 1
+            },
+            {
+                question: "Who wrote 'Hamlet'?",
+                answers: ["Shakespeare", "Dickens", "Hemingway", "Austen"],
+                correct: 0
+            },
+            {
+                question: "What is the largest ocean on Earth?",
+                answers: ["Atlantic", "Indian", "Pacific", "Arctic"],
+                correct: 2
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let timer;
+        let timeLeft = 15;
+
+        function initializeQuiz() {
+            document.getElementById("next-button").style.display = 'none';
+            document.getElementById("restart-button").style.display = 'none';
+            loadQuestion();
+            startTimer();
+        }
+
+        function loadQuestion() {
+            const question = questions[currentQuestionIndex];
+            document.getElementById("question").textContent = question.question;
+            const answersList = document.getElementById("answers-list");
+            answersList.innerHTML = "";
+            question.answers.forEach((answer, index) => {
+                const listItem = document.createElement("li");
+                listItem.textContent = answer;
+                listItem.onclick = () => checkAnswer(index);
+                answersList.appendChild(listItem);
+            });
+        }
+
+        function checkAnswer(selectedIndex) {
+            const correctIndex = questions[currentQuestionIndex].correct;
+            if (selectedIndex === correctIndex) {
+                score++;
+                document.getElementById("score").textContent = score;
+            }
+            disableAnswerSelection();
+            clearInterval(timer);
+            document.getElementById("next-button").style.display = 'inline-block';
+        }
+
+        function disableAnswerSelection() {
+            const listItems = document.querySelectorAll("#answers-list li");
+            listItems.forEach(item => {
+                item.style.pointerEvents = "none";
+            });
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+                startTimer();
+                document.getElementById("next-button").style.display = 'none';
+            } else {
+                endQuiz();
+            }
+        }
+
+        function startTimer() {
+            timeLeft = 15;
+            document.getElementById("time-left").textContent = timeLeft;
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById("time-left").textContent = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    document.getElementById("next-button").style.display = 'inline-block';
+                    disableAnswerSelection();
+                }
+            }, 1000);
+        }
+
+        function endQuiz() {
+            document.getElementById("quiz").innerHTML = `
+                <h1>Quiz Completed!</h1>
+                <p>Your final score is: ${score} / ${questions.length}</p>
+                <button onclick="restartQuiz()">Restart Quiz</button>
+            `;
+        }
+
+        function restartQuiz() {
+            location.reload();
+        }
+
+        initializeQuiz();
+    </script>
+</body>
+</html>

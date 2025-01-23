@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Clock & Greetings</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+
+        #clock {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #333;
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 2px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #greeting {
+            font-size: 1.5rem;
+            color: #555;
+        }
+
+        .greeting-box {
+            font-size: 1.2rem;
+            color: #555;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Dynamic Clock & Greetings</h1>
+    <div id="clock"></div>
+    <div id="greeting" class="greeting-box"></div>
+
+    <script>
+        function updateClock() {
+            const clockElement = document.getElementById("clock");
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+            const formattedTime = `${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`;
+            clockElement.textContent = formattedTime;
+            displayGreeting(hours);
+        }
+
+        function padZero(value) {
+            return value < 10 ? '0' + value : value;
+        }
+
+        function displayGreeting(hours) {
+            const greetingElement = document.getElementById("greeting");
+            if (hours >= 0 && hours < 12) {
+                greetingElement.textContent = "Good Morning!";
+                alert("Good Morning!");
+            } else if (hours >= 12 && hours < 18) {
+                greetingElement.textContent = "Good Afternoon!";
+                alert("Good Afternoon!");
+            } else {
+                greetingElement.textContent = "Good Evening!";
+                alert("Good Evening!");
+            }
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
