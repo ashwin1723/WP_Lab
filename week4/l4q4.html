@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Bill Generator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            width: 300px;
+            padding: 20px;
+            border: 2px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label>Choose a Brand:</label>
+        <select id="brand">
+            <option value="HP">HP</option>
+            <option value="Nokia">Nokia</option>
+            <option value="Samsung">Samsung</option>
+            <option value="Motorola">Motorola</option>
+            <option value="Apple">Apple</option>
+        </select>
+        <br><br>
+        
+        <label>Choose a Product:</label><br>
+        <input type="checkbox" id="mobile" value="Mobile"> Mobile
+        <input type="checkbox" id="laptop" value="Laptop"> Laptop
+        <br><br>
+        
+        <label>Enter Quantity:</label>
+        <input type="number" id="quantity" min="1" value="1">
+        <br><br>
+        
+        <button id="produceBill">Produce Bill</button>
+    </div>
+    
+    <script>
+        $(document).ready(function() {
+            $("#produceBill").click(function() {
+                let quantity = parseInt($("#quantity").val());
+                let total = 0;
+                
+                if($("#mobile").is(":checked")) {
+                    total += 200 * quantity;
+                }
+                if($("#laptop").is(":checked")) {
+                    total += 1000 * quantity;
+                }
+                
+                if(total > 0) {
+                    alert("Total Amount: $" + total);
+                } else {
+                    alert("Please select a product.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

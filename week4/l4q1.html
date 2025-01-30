@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table and Image Move Animation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    /* Container styles */
+    #container {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden; /* To hide content that moves out of view */
+    }
+
+    /* Table styles */
+    table {
+      width: 50%;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid #000;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+
+    /* Alternate row colors */
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:nth-child(odd) {
+      background-color: #ffffff;
+    }
+
+    /* Image styles */
+    img {
+      width: 200px;
+      height: auto;
+      margin-left: 20px;
+    }
+
+    /* Button styles */
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    /* Table-image container (set its initial position) */
+    #table-image-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Interactive Table and Image</h1>
+
+  <!-- Table and Image Section -->
+  <div id="container">
+    <div id="table-image-container">
+      <table>
+        <tr>
+          <th>Header 1</th>
+          <th>Header 2</th>
+          <th>Header 3</th>
+        </tr>
+        <tr>
+          <td>Data 1</td>
+          <td>Data 2</td>
+          <td>Data 3</td>
+        </tr>
+        <tr>
+          <td>Data 4</td>
+          <td>Data 5</td>
+          <td>Data 6</td>
+        </tr>
+        <tr>
+          <td>Data 7</td>
+          <td>Data 8</td>
+          <td>Data 9</td>
+        </tr>
+      </table>
+      <img src="https://via.placeholder.com/200" alt="Sample Image">
+      <button id="moveBtn">Move Table & Image</button>
+    </div>
+  </div>
+
+  <!-- jQuery Script -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Move the table and image together from right to left when button is clicked
+      $('#moveBtn').click(function () {
+        $('#table-image-container').animate({
+          left: '-100%' // Move the container to the left
+        }, 2000);
+      });
+    });
+  </script>
+
+</body>
+</html>
